@@ -1,80 +1,174 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html>
 
 <head>
   <title>Example</title>
 
   <body>
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#create-vacation-modal">
-              Create Vacation
-        </button>
-    <div class="modal fade" id="create-vacation-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Create vacation</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-          </div>
-          <div class="modal-body">
-            <form id="create-vacation">
-              <input class="create-vacation" type="text" name="country" value="" placeholder="country">
-              <input class="create-vacation" type="text" name="city" value="" placeholder="city">
-              <input class="create-vacation" type="text" name="visited" value="" placeholder="visited">
-
-              <input type="submit" name="submit" value="Create Vacation!">
-            </form>
-          </div>
-        </div>cd
-      </div>
-    </div>
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#delete-vacation-modal">
-    Delete Vacation
-    </button>
-    <div class="modal fade" id="delete-vacation-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Delete Vacation</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-      <span aria-hidden="true">&times;</span>
-    </button>
-          </div>
-          <div class="modal-body">
-            <form id="delete-vacation">
-              <input class="delete-vacation" type="text" name="vacation[id]" value="" placeholder="vacation id">
-              <input type="submit" name="submit" value="Delete Vacation">
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#update-vacation-modal">
-            Update Vacation
-            </button>
-    <div class="modal fade" id="update-vacation-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Update Vacation</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <form id="update-vacation">
-              <input class="update-vacation" type="text" name="id" value="" placeholder="vacation[id]">
-              <input class="update-vacation" type="text" name="country" value="" placeholder="country">
-              <input class="update-vacation" type="text" name="city" value="" placeholder="city">
-              <input class="update-vacation" type="text" name="visited" value="" placeholder="visited">
-              <input type="submit" name="submit" value="Update Vacation!">
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-  </body>
 
 </html>
-</head>
+</head> -->
+
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>Vacation Planner</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <!-- Do not add `link` tags unless you know what you are doing -->
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+      <!-- Do not add `script` tags unless you know what you are doing -->
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+
+    </head>
+
+    <body>
+
+      <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+          <div class="navbar-header">
+
+
+
+
+          </div>
+
+
+            <ul class="nav navbar-nav navbar-right">
+
+
+
+                <form id="sign-in" class="navbar-form navbar-right" role="form">
+
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                    <input id="email" type="email" class="form-control" name="credentials[email]" value="" placeholder="Email Address">
+                  </div>
+
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                    <input type="password" class="form-control" name="credentials[password]" value="" placeholder="Password">
+                  </div>
+                <button type="submit" class="btn btn-primary">Login</button>
+                </form>
+
+                <form id="change-password" class="navbar-form navbar-right" role="form">
+
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                    <input type="password" class="form-control" name="passwords[old]" value="" placeholder="Old Password">
+                  </div>
+
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                    <input type="password" class="form-control" name="passwords[new]" value="" placeholder="New Password">
+                  </div>
+
+                  <button type="submit" class="btn btn-primary">Change Password</button>
+                </form>
+                <button id="sign-out" class="btn btn-primary">Sign Out</button>
+
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <div class="alert alert-success alert-dismissible"><a class="close" data-dismiss="alert">×</a><span class="alert-message"></span></div>
+      <div class="alert alert-danger alert-dismissible"><a class="close" data-dismiss="alert">×</a><span class="danger-alert-message"></span></div>
+
+      <div class="welcome">
+        <center><h3 id="hello"><strong>Greatings Travelers!!!</strong></h3>
+        <p id="blurb"> Welcome to Vacation PLanner!!!!, a web application to record past experiences and new trips to come!</p></center>
+      </div>
+
+      <div>
+        <div class="container" ></div>
+          <center><div class="col-md-6" ></center>
+            <div id="logbox"  >
+              <form id="sign-up" method="post" action="/signup" >
+                <h1>Create an Account</h1>
+				            <input name="credentials[email]" type="email" placeholder="Email address" class="input pass"/>
+                    <input name="credentials[password]" type="password" placeholder="Choose a password" required="required" class="input pass"/>
+                    <input name="credentials[password_confirmation]" type="password" placeholder="Confirm password" required="required" class="input pass"/>
+                    <input type="submit" value="Sign me up!" class="inputButton"/>
+
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#create-vacation-modal">
+                  Create Vacation
+            </button>
+        <div class="modal fade" id="create-vacation-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Create vacation</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+              </div>
+              <div class="modal-body">
+                <form id="create-vacation">
+                  <input class="create-vacation" type="text" name="country" value="" placeholder="country">
+                  <input class="create-vacation" type="text" name="city" value="" placeholder="city">
+                  <input class="create-vacation" type="text" name="visited" value="" placeholder="visited">
+
+                  <input type="submit" name="submit" value="Create Vacation!">
+                </form>
+              </div>
+            </div>cd
+          </div>
+        </div>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#delete-vacation-modal">
+        Delete Vacation
+        </button>
+        <div class="modal fade" id="delete-vacation-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Delete Vacation</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+              </div>
+              <div class="modal-body">
+                <form id="delete-vacation">
+                  <input class="delete-vacation" type="text" name="vacation[id]" value="" placeholder="vacation id">
+                  <input type="submit" name="submit" value="Delete Vacation">
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#update-vacation-modal">
+                Update Vacation
+                </button>
+        <div class="modal fade" id="update-vacation-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Update Vacation</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <form id="update-vacation">
+                  <input class="update-vacation" type="text" name="id" value="" placeholder="vacation[id]">
+                  <input class="update-vacation" type="text" name="country" value="" placeholder="country">
+                  <input class="update-vacation" type="text" name="city" value="" placeholder="city">
+                  <input class="update-vacation" type="text" name="visited" value="" placeholder="visited">
+                  <input type="submit" name="submit" value="Update Vacation!">
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        </body>
