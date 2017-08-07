@@ -9,6 +9,7 @@ const createVacationSuccess = () => {
   $('.alert-success').slideDown()
 
   $('.alert-success').delay(2000).slideUp()
+  $('input').val('')
 }
 const createVacationFailure = (err) => {
   if (err.status === 400) {
@@ -26,16 +27,17 @@ const createVacationFailure = (err) => {
 }
 
 const getVacationSuccess = () => {
+  // console.log(store.vacations);
+  // const sortedVacations = store.vacations.sort(function (a, b) {
+  //   return new Date(b.eaten_on) - new Date(a.eaten_on)
+  // })
 
-  const sortedVacations = store.vacations.sort(function (a, b) {
-    return new Date(b.eaten_on) - new Date(a.eaten_on)
+  const vacations = vacationTemplate({
+    vacations: store.vacations
   })
 
-  const $vacations = vacationTemplate({
-    meals: sortedVacations
-  })
-
-  $('.vacation-show').html($vacations)
+  $('.vacation-display').html('')
+  $('.vacation-display').append(vacations)
 }
 
 const updateVacationSuccess = () => {
@@ -44,6 +46,7 @@ const updateVacationSuccess = () => {
   $('.alert-success').slideDown()
 
   $('.alert-success').delay(2000).slideUp()
+  $('input').val('')
 }
 
 const removeVacationSuccess = () => {
@@ -52,6 +55,7 @@ const removeVacationSuccess = () => {
   $('.alert-success').slideDown()
 
   $('.alert-success').delay(2000).slideUp()
+  $('input').val('')
 }
 const removeVacationFailure = () => {
   $('.danger-alert-message').text('Oh NO!!, Somthing went wrong! Please try again!')

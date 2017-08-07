@@ -2,8 +2,10 @@
 const store = require('../store')
 
 const checkForUser = function() {
+  // console.log('checkForUser');
   //if user is already signed in
-  if (!!store.user.id) {
+  if (store.user) {
+    // console.log('store.user: ', store.user);
     loggedInSuccess()
 
     $('#sign-in').hide()
@@ -11,6 +13,9 @@ const checkForUser = function() {
     $('#change-password').show()
     $('#logbox2').show()
     $('#show-vacations').show()
+    $('#create-vacation-button').show()
+    $('#delete-vacation-button').show()
+    $('#update-vacation-button').show()
     $('.welcome').hide()
   } else {
     $('#sign-out').hide()
@@ -18,6 +23,9 @@ const checkForUser = function() {
     $('#sign-in').show()
     $('#logbox2').hide()
     $('#show-vacations').hide()
+    $('#create-vacation-button').hide()
+    $('#delete-vacation-button').hide()
+    $('#update-vacation-button').hide()
     $('.welcome').show()
   }
 }
@@ -39,15 +47,18 @@ const signUpFailure = (err) => {
 }
 
 const signUpSuccess = (resp) => {
+  // console.log('signUpSuccess');
   $("#sign-up")[0].reset()
   $('#logbox').hide()
   $('.alert-message').text("Thanks for signing up! Please sign in!")
   $('.alert-success').slideDown()
 
   $('.alert-success').delay(2000).slideUp()
+  $('input').val('')
 }
 
 const signInSuccess = (resp) => {
+  // console.log('signInSuccess');
   store.user = resp.user
   window.localStorage.setItem('user', JSON.stringify(resp.user))
   loggedInSuccess()
@@ -58,6 +69,7 @@ const signInSuccess = (resp) => {
 
 
   checkForUser()
+  $('input').val('')
   return store.user
 }
 
@@ -67,19 +79,22 @@ const loggedInSuccess = () => {
   $('#signIn').hide()
   $('#logbox').hide()
   $('.vacation-show').show()
+  $('input').val('')
 }
 
 const signOutSuccess = () => {
+  // console.log('signOutSuccess');
   $('#logbox').show()
   $('#lobbox2').hide()
-  $('.vacation-show').html('')
+  $('.vacation-display').html('')
 
 
-  store.user = {}
+  store.user = undefined
   // remove local storage user copy.
   window.localStorage.removeItem('user')
   checkForUser()
   return store
+  $('input').val('')
 }
 
 const signOutFailure = () => {
@@ -128,6 +143,7 @@ const passwordChangeSuccess = () => {
   $('.alert-success').slideDown()
 
   $('.alert-success').delay(2000).slideUp()
+  $('input').val('')
 }
 
 

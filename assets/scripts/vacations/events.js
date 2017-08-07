@@ -1,7 +1,7 @@
 'use strict'
 
 const getFormFields = require(`../../../lib/get-form-fields`)
-const editVacationTemplate = require('../templates/meal-edit-form.handlebars')
+// const editVacationTemplate = require('../templates/meal-edit-form.handlebars')
 
 const api = require('./api')
 const ui = require('./ui')
@@ -9,17 +9,18 @@ const store = require('../store')
 
 const onCreateVacation = function (event) {
   let data = getFormFields(event.target)
+  // console.log('Data: ', data);
   event.preventDefault()
-  api.creatVacations(data)
+  api.createVacation(data)
     .then((response) => {
       store.vacation = response.vacation
       onGetVacations()
     })
-    .then(ui.createMealSuccess)
-    .catch(ui.createMealFailure)
+    .then(ui.createVacationSuccess)
+    .catch(ui.createVacationFailure)
 }
 
-const onGetVacation = function () {
+const onGetVacations = function () {
   api.getVacations()
     .then((response) => {
       store.vacations = response.vacations
@@ -32,7 +33,7 @@ const onUpdateVacation = function (event) {
   event.preventDefault()
   let data = getFormFields(event.target)
   api.updateVacation(data)
-    .then(ui.UpdateMealSuccess)
+    .then(ui.updateVacationSuccess)
     .then(() => {
       onGetVacations()
       $('#editModal').modal('hide')
@@ -52,8 +53,10 @@ const openEditModal = function (event) {
 
 const onRemoveVacation = function (event) {
   let vacationId = $(this).data().vacationid
+  let data = getFormFields(event.target)
+  // console.log('Data: ', data);
   event.preventDefault()
-  api.removeVacation(vacationId)
+  api.removeVacation(data.vacation.id)
     .then(ui.removeVacationSuccess)
     .then(onGetVacations)
     .catch(ui.removeVacaFailure)
@@ -65,6 +68,8 @@ const addHandlers = () => {
   $('.vacation-show').on('click', '.vacation-delete', onRemoveVacation)
   $('.vacation-show').on('click', '.vacation-edit', openEditModal)
   $('#editModal').on('submit', 'form.edit-vacation', onUpdateVacation)
+  $('#delete-vacation').on('submit', onRemoveVacation)
+  $('#update-vacation').on('submit', onUpdateVacation)
 }
 
 module.exports = {

@@ -5,7 +5,7 @@ const store = require('../store')
 
 const createVacation = function (data) {
   return $.ajax({
-    url: config.apiOrigin + '/meals',
+    url: config.apiOrigin + '/vacations',
     method: 'POST',
     headers: {
       "Authorization": `Token token=${store.user.token}`
@@ -14,9 +14,9 @@ const createVacation = function (data) {
   })
 }
 
-const getVacation = function () {
+const getVacations = function () {
   return $.ajax({
-    url: config.apiOrigin + '/meals',
+    url: config.apiOrigin + '/vacations',
     method: 'GET',
     headers: {
       "Authorization": `Token token=${store.user.token}`
@@ -26,7 +26,7 @@ const getVacation = function () {
 
 const updateVacation = function (data) {
   return $.ajax({
-    url: config.apiOrigin + '/meals/' + data.meal.id,
+    url: config.apiOrigin + '/vacations/' + data.vacation.id,
     method: 'PATCH',
     headers: {
       "Authorization": `Token token=${store.user.token}`
@@ -37,7 +37,7 @@ const updateVacation = function (data) {
 
 const removeVacation = function (id) {
   return $.ajax({
-    url: config.apiOrigin + '/meals/' + id,
+    url: config.apiOrigin + '/vacations/' + id,
     method: 'DELETE',
     headers: {
       Authorization: `Token token=${store.user.token}`,
@@ -47,7 +47,7 @@ const removeVacation = function (id) {
 
 module.exports = {
   createVacation,
-  getVacation,
+  getVacations,
   updateVacation,
   removeVacation
 }

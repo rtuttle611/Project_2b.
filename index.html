@@ -89,7 +89,7 @@
             <div id="logbox"  >
               <form id="sign-up" method="post" action="/signup" >
                 <h1>Create an Account</h1>
-				            <input name="credentials[email]" type="email" placeholder="Email address" class="input pass"/>
+                            <input name="credentials[email]" type="email" placeholder="Email address" class="input pass"/>
                     <input name="credentials[password]" type="password" placeholder="Choose a password" required="required" class="input pass"/>
                     <input name="credentials[password_confirmation]" type="password" placeholder="Confirm password" required="required" class="input pass"/>
                     <input type="submit" value="Sign me up!" class="inputButton"/>
@@ -98,11 +98,13 @@
             </div>
           </div>
         </div>
-      </div>
 
-      <div>
 
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#create-vacation-modal">
+        <button id="show-vacations" type="button" class="btn btn-primary">
+                  Get Vacations
+            </button>
+
+        <button id="create-vacation-button" type="button" class="btn btn-primary" data-toggle="modal" data-target="#create-vacation-modal">
                   Create Vacation
             </button>
         <div class="modal fade" id="create-vacation-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -116,17 +118,20 @@
               </div>
               <div class="modal-body">
                 <form id="create-vacation">
-                  <input class="create-vacation" type="text" name="country" value="" placeholder="country">
-                  <input class="create-vacation" type="text" name="city" value="" placeholder="city">
-                  <input class="create-vacation" type="text" name="visited" value="" placeholder="visited">
+                  <input class="create-vacation" type="text" name="vacation[country]" value="" placeholder="country">
+                  <input class="create-vacation" type="text" name="vacation[city]" value="" placeholder="city">
+                  <!-- <input class="create-vacation" type="checkbox" name="vacation[visited]" value=""> -->
+                  <!-- <input class="create-vacation" type="text" name="vacation[visited]" value="" placeholder="visited"> -->
+                  <input class="create-vacation" type="text" name="vacation[name]" value="" placeholder="name">
+                  <input class="create-vacation" type="text" name="vacation[comments]" value="" placeholder="comments">
 
-                  <input type="submit" name="submit" value="Create Vacation!">
+                  <button type="submit" name="submit">Create Vacation!</button>
                 </form>
               </div>
             </div>cd
           </div>
         </div>
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#delete-vacation-modal">
+        <button id="delete-vacation-button" type="button" class="btn btn-primary" data-toggle="modal" data-target="#delete-vacation-modal">
         Delete Vacation
         </button>
         <div class="modal fade" id="delete-vacation-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -141,13 +146,13 @@
               <div class="modal-body">
                 <form id="delete-vacation">
                   <input class="delete-vacation" type="text" name="vacation[id]" value="" placeholder="vacation id">
-                  <input type="submit" name="submit" value="Delete Vacation">
+                  <button type="submit" name="submit" value="">Delete Vacation!</button>
                 </form>
               </div>
             </div>
           </div>
         </div>
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#update-vacation-modal">
+        <button id="update-vacation-button" type="button" class="btn btn-primary" data-toggle="modal" data-target="#update-vacation-modal">
                 Update Vacation
                 </button>
         <div class="modal fade" id="update-vacation-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -161,14 +166,18 @@
               </div>
               <div class="modal-body">
                 <form id="update-vacation">
-                  <input class="update-vacation" type="text" name="id" value="" placeholder="vacation[id]">
-                  <input class="update-vacation" type="text" name="country" value="" placeholder="country">
-                  <input class="update-vacation" type="text" name="city" value="" placeholder="city">
-                  <input class="update-vacation" type="text" name="visited" value="" placeholder="visited">
-                  <input type="submit" name="submit" value="Update Vacation!">
+                  <input class="update-vacation" type="number" name="vacation[id]" value="" placeholder="id">
+                  <input class="update-vacation" type="text" name="vacation[country]" value="" placeholder="country">
+                  <input class="update-vacation" type="text" name="vacation[city]" value="" placeholder="city">
+                  <!-- <input class="update-vacation" type="checkbox" name="vacation[visited]" value=""> -->
+                  <!-- <input class="update-vacation" type="text" name="vacation[visited]" value="" placeholder="visited"> -->
+                  <input class="update-vacation" type="text" name="vacation[name]" value="" placeholder="name">
+                  <input class="update-vacation" type="text" name="vacation[comments]" value="" placeholder="comments">
+                  <button type="submit" name="submit" value="">Update Vacation!</button>
                 </form>
               </div>
             </div>
           </div>
         </div>
+        <div class="vacation-display"></div>
         </body>
