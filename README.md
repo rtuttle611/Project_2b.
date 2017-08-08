@@ -30,7 +30,7 @@ I started with creating the back end first utilizing rails. from there I needed 
 
   <ul>
     <li><a href="https://github.com/rtuttle611/Project_2">BACK END REPO </a></li>
-    <li><a href="https://github.com/rtuttle611/Vacation-Planner-Client"> DEPLOYED APP </a></li>
+    <li><a href="https://shrouded-cove-41158.herokuapp.com"> DEPLOYED APP </a></li>
     <li><a href="https://github.com/rtuttle611"> MY GITHUB PROFILE </a></li>
     <li><a href="https://wireframe.cc/Nl6ImC"> MY WIRE FRAMES </a></li>
   </ul>
